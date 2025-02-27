@@ -1,19 +1,50 @@
 // Created By Momin_Rifat
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int main()
+void solve() 
 {
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    vector<int> a(27);
+    for(int i = 1; i <= 26; i++) 
+    {
+        a[i] = 96 + i;
+    }
+
+    int i = n - 1;
+    string ans = "";
+    while (i >= 0) 
+    {
+        if(s[i] == '0') 
+        {
+            int num = stoi(s.substr(i - 2, 2));
+            ans += char(a[num]);
+            i -= 3;
+        } 
+        else 
+        {
+            ans += char(a[s[i] - '0']);
+            i--;
+        }
+    }
+
+    reverse(ans.begin(), ans.end());
+    cout << ans << endl;
+}
+
+int main() 
+{
+    ios :: sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    
     int tc;
     cin >> tc;
-    while(tc--)
+    while(tc--) 
     {
-        int a,b,c;
-        cin >> a >> b >> c;
-        int t1 = a - 1;
-        int t2 = abs(b - c) + abs(c - 1);
-        if(t1 < t2) cout << "1" << endl;
-        else if(t1 > t2) cout << "2" << endl;
-        else cout << "3" << endl;
+        solve();
     }
     return 0;
 }
