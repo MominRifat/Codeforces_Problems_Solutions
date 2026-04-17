@@ -1,1 +1,4 @@
-ACDDDCA
+Case 1:
+0 0
+Case 2:
+0 0 0
