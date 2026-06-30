@@ -12,9 +12,21 @@ template <typename T> using oder_set = tree<T, null_type, greater_equal<T>, rb_t
 
 void solve()
 {
-    ll n;
+    int n;
     cin >> n;
-    
+    vector<int> a(n);
+    for(int i = 0; i < n; i++) cin >> a[i];
+    for(int i = 0; i < n; i++)
+    {
+        for(int j = i + 1; j < n; j++)
+        {
+            if(a[i] < a[j])
+            {
+                a[j] = a[i];
+            }
+        }
+    }
+    cout << accumulate(a.begin(), a.end(), 0) << endl;
 }
 
 int main()
