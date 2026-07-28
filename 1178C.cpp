@@ -1,4 +1,3 @@
-
 // Created By Momin_Rifat
 #include<bits/stdc++.h>
 #include<ext/pb_ds/assoc_container.hpp>
@@ -10,20 +9,31 @@ using namespace std;
 #define yes cout << "YES" << '\n'
 #define no cout << "NO" << '\n'
 template <typename T> using oder_set = tree<T, null_type, greater_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
-vector<ll> a;
+
 void solve()
 {
-    int a,b;
-    cin >> a >> b;  
-    cout << a * b + 1 << endl;
+    ll r,c;
+    cin >> r >> c;
+    ll ans = 1;
+    ll mod = 998244353;
+    for(int i = 1; i <= (r + c); i++)
+    {
+        ans = (ans * 2) % mod;
+    }
+    cout << ans << endl;
 }
+
 int main()
 {
-    ios :: sync_with_stdio(false);
+    ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
     int tc = 1;
-    cin >> tc;
+    //cin >> tc;
     while(tc--)
     {
        solve();
